@@ -3,18 +3,20 @@ const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 const navLinks = document.querySelectorAll('.nav-link');
 
-hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    hamburger.classList.toggle('active');
-});
-
-// Close mobile menu when clicking on a link
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        hamburger.classList.remove('active');
+if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        hamburger.classList.toggle('active');
     });
-});
+
+    // Close mobile menu when clicking on a link
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+        });
+    });
+}
 
 // Smooth Scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -30,17 +32,34 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Throttle function for scroll events
+function throttle(func, wait) {
+    let timeout;
+    let lastTime = 0;
+    return function executedFunction(...args) {
+        const now = Date.now();
+        if (now - lastTime >= wait) {
+            func.apply(this, args);
+            lastTime = now;
+        }
+    };
+}
+
 // Navbar Background on Scroll
-window.addEventListener('scroll', () => {
+const handleNavbarScroll = throttle(() => {
     const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.15)';
-    } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+    if (navbar) {
+        if (window.scrollY > 50) {
+            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            navbar.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.15)';
+        } else {
+            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+        }
     }
-});
+}, 100);
+
+window.addEventListener('scroll', handleNavbarScroll);
 
 // Intersection Observer for Scroll Animations
 const observerOptions = {
@@ -70,7 +89,7 @@ animatedElements.forEach(el => {
 });
 
 // Add parallax effect to hero section
-window.addEventListener('scroll', () => {
+const handleParallaxScroll = throttle(() => {
     const scrolled = window.pageYOffset;
     const heroContent = document.querySelector('.hero-content');
     const circles = document.querySelectorAll('.circle');
@@ -84,12 +103,14 @@ window.addEventListener('scroll', () => {
         const speed = (index + 1) * 0.3;
         circle.style.transform = `translateY(${scrolled * speed}px) rotate(${scrolled * 0.1}deg)`;
     });
-});
+}, 100);
+
+window.addEventListener('scroll', handleParallaxScroll);
 
 // Active Nav Link on Scroll
 const sections = document.querySelectorAll('section[id]');
 
-function highlightNavLink() {
+const highlightNavLink = throttle(() => {
     const scrollY = window.pageYOffset;
 
     sections.forEach(section => {
@@ -108,20 +129,9 @@ function highlightNavLink() {
             navLink.style.color = '';
         }
     });
-}
+}, 100);
 
 window.addEventListener('scroll', highlightNavLink);
-
-// Add hover effect to resource list items
-const resourceListItems = document.querySelectorAll('.resource-list li');
-resourceListItems.forEach(item => {
-    item.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateX(10px)';
-    });
-    item.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateX(0)';
-    });
-});
 
 // Dynamic quote rotation (optional feature)
 const quotes = [
