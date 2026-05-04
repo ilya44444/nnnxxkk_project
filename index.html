@@ -41,6 +41,35 @@
         </div>
     </section>
 
+    <!-- Analytics Trends Section -->
+    <section class="section analytics-section">
+        <div class="container">
+            <h2 class="section-title">Аналитика трендов</h2>
+            <div class="analytics-content">
+                <div class="analytics-text">
+                    <p>Жизненный цикл тренда в TikTok/Instagram сократился до 3–6 недель.</p>
+                    <p>78% инноваций инициируют инфлюенсеры.</p>
+                    <p>92% молодежи подвержены эффекту FOMO.</p>
+                </div>
+                <div class="analytics-chart">
+                    <svg viewBox="0 0 400 200" class="trend-chart">
+                        <defs>
+                            <linearGradient id="trendGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <polyline fill="url(#trendGradient)" stroke="#667eea" stroke-width="2" points="0,180 50,160 100,140 150,50 200,30 250,80 300,120 350,150 400,180"/>
+                        <line x1="0" y1="180" x2="400" y2="180" stroke="#e2e8f0" stroke-width="1"/>
+                        <text x="0" y="195" font-size="12" fill="#64748b">Неделя 1</text>
+                        <text x="190" y="195" font-size="12" fill="#64748b">Неделя 3</text>
+                        <text x="380" y="195" font-size="12" fill="#64748b">Неделя 6</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- About Section -->
     <section id="about" class="section about-section">
         <div class="container">
@@ -49,7 +78,7 @@
                 <div class="about-card slide-in-left">
                     <div class="card-icon">🌟</div>
                     <h3>Свобода быть собой</h3>
-                    <p>Индивидуализм — это право и возможность быть самим собой, не подчиняясь навязанным стандартам и трендам социальных сетей.</p>
+                    <p>Индивидуализм — это право и возможность быть самим собой, не подчиняясь навязанным стандартам и трендам социальных сетей. Это право не следовать виральным эстетикам (core-стилям).</p>
                 </div>
                 <div class="about-card slide-in-bottom">
                     <div class="card-icon">🎯</div>
@@ -114,6 +143,39 @@
         </div>
     </section>
 
+    <!-- Digital Footprint Section -->
+    <section class="section digital-footprint-section">
+        <div class="container">
+            <h2 class="section-title">Цифровой след</h2>
+            <div class="quiz-container">
+                <h3>Как сильно алгоритмы влияют на ваши покупки?</h3>
+                <form id="influence-quiz">
+                    <div class="quiz-question">
+                        <input type="checkbox" id="q1" name="q1">
+                        <label for="q1">Я покупаю товары, которые вижу в Reels или Stories</label>
+                    </div>
+                    <div class="quiz-question">
+                        <input type="checkbox" id="q2" name="q2">
+                        <label for="q2">Я следую виральным эстетикам и стилям из TikTok</label>
+                    </div>
+                    <div class="quiz-question">
+                        <input type="checkbox" id="q3" name="q3">
+                        <label for="q3">Блогеры и инфлюенсеры влияют на мои покупки</label>
+                    </div>
+                    <div class="quiz-question">
+                        <input type="checkbox" id="q4" name="q4">
+                        <label for="q4">Я проверяю наличие товаров в соцсетях перед покупкой</label>
+                    </div>
+                    <button type="button" id="quiz-result-btn" class="cta-button">Результат</button>
+                    <button type="button" id="quiz-reset-btn" class="cta-button reset-btn">Пройти заново</button>
+                </form>
+                <div id="quiz-result" class="quiz-result hidden">
+                    <p id="quiz-result-text"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Resources Section -->
     <section id="resources" class="section resources-section">
         <div class="container">
@@ -161,7 +223,7 @@
                 <div class="timeline-item">
                     <div class="timeline-marker">1</div>
                     <div class="timeline-content">
-                        <h3>Осознание</h3>
+                        <h3>Анализ влияния алгоритмов на твой гардероб</h3>
                         <p>Признай влияние социальных сетей и моды на твои решения. Это первый шаг.</p>
                     </div>
                 </div>
@@ -175,7 +237,7 @@
                 <div class="timeline-item">
                     <div class="timeline-marker">3</div>
                     <div class="timeline-content">
-                        <h3>Практика</h3>
+                        <h3>Применение принципов осознанного потребления</h3>
                         <p>Применяй принципы индивидуализма в повседневной жизни. Начни с малого.</p>
                     </div>
                 </div>

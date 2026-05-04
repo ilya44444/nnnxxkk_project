@@ -161,6 +161,16 @@ body {
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
 
+.reset-btn {
+    background: var(--text-light);
+    color: var(--white);
+    margin-left: 1rem;
+}
+
+.reset-btn:hover {
+    background: var(--text-dark);
+}
+
 .hero-background {
     position: absolute;
     width: 100%;
@@ -300,6 +310,36 @@ body {
     line-height: 1.8;
 }
 
+/* Analytics Section */
+.analytics-section {
+    background: var(--white);
+}
+
+.analytics-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.analytics-text p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+    line-height: 1.8;
+}
+
+.analytics-chart {
+    display: flex;
+    justify-content: center;
+}
+
+.trend-chart {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
 /* Philosophy Section */
 .philosophy-section {
     background: var(--white);
@@ -419,6 +459,62 @@ body {
 .resource-list li:hover {
     color: var(--primary-color);
     padding-left: 10px;
+}
+
+/* Digital Footprint Section */
+.digital-footprint-section {
+    background: var(--light-bg);
+}
+
+.quiz-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.quiz-container h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--text-dark);
+}
+
+.quiz-question {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.quiz-question input[type="checkbox"] {
+    margin-right: 1rem;
+    transform: scale(1.2);
+}
+
+.quiz-question label {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+#quiz-result-btn {
+    display: block;
+    margin: 2rem auto 0;
+}
+
+.quiz-result {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: var(--gradient-1);
+    color: var(--white);
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
 }
 
 /* Journey Section */
@@ -623,6 +719,30 @@ body {
 
     .timeline-item {
         gap: 1rem;
+    }
+
+    .analytics-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .analytics-text p {
+        font-size: 1rem;
+    }
+
+    .quiz-container {
+        padding: 1.5rem;
+    }
+
+    .quiz-question label {
+        font-size: 1rem;
+    }
+
+    .reset-btn {
+        margin-left: 0;
+        margin-top: 1rem;
+        display: block;
+        width: 100%;
     }
 }
 

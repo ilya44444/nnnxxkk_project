@@ -187,3 +187,47 @@ if (quoteCite) quoteCite.style.transition = 'opacity 0.5s ease';
 console.log('%c🌟 Добро пожаловать на путь к себе!', 'color: #6366f1; font-size: 20px; font-weight: bold;');
 console.log('%cЭтот сайт создан, чтобы вдохновить на индивидуализм.', 'color: #8b5cf6; font-size: 14px;');
 console.log('%cБудь собой. Это твоя суперсила.', 'color: #ec4899; font-size: 14px; font-style: italic;');
+
+// Quiz functionality
+const quizResultBtn = document.getElementById('quiz-result-btn');
+const quizResetBtn = document.getElementById('quiz-reset-btn');
+const quizResult = document.getElementById('quiz-result');
+const quizResultText = document.getElementById('quiz-result-text');
+const quizCheckboxes = document.querySelectorAll('#influence-quiz input[type="checkbox"]');
+
+function calculateInfluence() {
+    const checkedCount = Array.from(quizCheckboxes).filter(cb => cb.checked).length;
+    const percentage = checkedCount * 25;
+
+    let resultText = '';
+    if (percentage <= 25) {
+        resultText = 'Вы почти не поддаетесь влиянию алгоритмов. Продолжайте развивать осознанный подход!';
+    } else if (percentage >= 50 && percentage <= 75) {
+        resultText = 'Социальные сети частично определяют ваш стиль. Попробуйте больше полагаться на собственные предпочтения.';
+    } else if (percentage === 100) {
+        resultText = 'Ваш гардероб полностью продиктован трендами из соцсетей. Время задуматься об индивидуальном стиле!';
+    }
+
+    return resultText;
+}
+
+if (quizResultBtn && quizResult && quizResultText) {
+    quizResultBtn.addEventListener('click', () => {
+        const result = calculateInfluence();
+        quizResultText.textContent = result;
+        quizResult.classList.remove('hidden');
+        quizResult.style.opacity = '0';
+        setTimeout(() => {
+            quizResult.style.transition = 'opacity 0.5s ease';
+            quizResult.style.opacity = '1';
+        }, 100);
+    });
+}
+
+if (quizResetBtn) {
+    quizResetBtn.addEventListener('click', () => {
+        quizCheckboxes.forEach(cb => cb.checked = false);
+        quizResult.classList.add('hidden');
+        quizResult.style.opacity = '0';
+    });
+}
