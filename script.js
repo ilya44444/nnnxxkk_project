@@ -193,6 +193,7 @@ const quizResultBtn = document.getElementById('quiz-result-btn');
 const quizResetBtn = document.getElementById('quiz-reset-btn');
 const quizResult = document.getElementById('quiz-result');
 const quizResultText = document.getElementById('quiz-result-text');
+const quizResultPercentage = document.getElementById('quiz-result-percentage');
 const quizCheckboxes = document.querySelectorAll('#influence-quiz input[type="checkbox"]');
 
 function calculateInfluence() {
@@ -200,21 +201,29 @@ function calculateInfluence() {
     const percentage = checkedCount * 25;
 
     let resultText = '';
-    if (percentage <= 25) {
-        resultText = 'Вы почти не поддаетесь влиянию алгоритмов. Продолжайте развивать осознанный подход!';
-    } else if (percentage >= 50 && percentage <= 75) {
-        resultText = 'Социальные сети частично определяют ваш стиль. Попробуйте больше полагаться на собственные предпочтения.';
-    } else if (percentage === 100) {
-        resultText = 'Ваш гардероб полностью продиктован трендами из соцсетей. Время задуматься об индивидуальном стиле!';
+    if (percentage === 0) {
+        resultText = 'Вы почти не подаетесь влиянию алгоритмов. Ваш стиль формируется осознанно и безопасно.';
+    } else if (percentage <= 25) {
+        resultText = 'Вы сохраняете свободный выбор и лишь изредка реагируете на популярные тренды.';
+    } else if (percentage <= 50) {
+        resultText = 'Социальные сети частично определяют ваш стиль. Попробуйте больше полагаться на собственные предпочтения и качество, а не на хайп.';
+    } else if (percentage <= 75) {
+        resultText = 'Алгоритмы заметно влияют на ваш гардероб. Выбирайте медленную моду и развивайте собственное эстетическое чутье.';
+    } else {
+        resultText = 'Ваш гардероб преимущественно продиктован трендами из соцсетей. Пора перестроить подход и позволить себе индивидуальный стиль.';
     }
 
-    return resultText;
+    return {
+        percentage,
+        resultText
+    };
 }
 
-if (quizResultBtn && quizResult && quizResultText) {
+if (quizResultBtn && quizResult && quizResultText && quizResultPercentage) {
     quizResultBtn.addEventListener('click', () => {
-        const result = calculateInfluence();
-        quizResultText.textContent = result;
+        const { percentage, resultText } = calculateInfluence();
+        quizResultPercentage.textContent = `Процент влияния алгоритмов на ваш гардероб: ${percentage}%`;
+        quizResultText.textContent = resultText;
         quizResult.classList.remove('hidden');
         quizResult.style.opacity = '0';
         setTimeout(() => {
