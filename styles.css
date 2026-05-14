@@ -334,6 +334,91 @@ body {
     justify-content: center;
 }
 
+.trend-lifecycle {
+    display: grid;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 420px;
+}
+
+.lifecycle-item {
+    background: #f8fafc;
+    border-radius: 18px;
+    padding: 1.3rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lifecycle-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.12);
+}
+
+.lifecycle-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8rem;
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.lifecycle-bar {
+    position: relative;
+    height: 16px;
+    background: #e2e8f0;
+    border-radius: 999px;
+    overflow: hidden;
+    margin-bottom: 0.9rem;
+}
+
+.lifecycle-fill {
+    display: block;
+    height: 100%;
+    border-radius: 999px;
+    transition: transform 0.3s ease;
+}
+
+.fill-start {
+    background: linear-gradient(90deg, #667eea 0%, #8b5cf6 100%);
+}
+
+.fill-peak {
+    background: linear-gradient(90deg, #ec4899 0%, #f97316 100%);
+}
+
+.fill-decline {
+    background: linear-gradient(90deg, #22c55e 0%, #06b6d4 100%);
+}
+
+.lifecycle-item:hover .lifecycle-fill {
+    transform: scaleX(1.02);
+}
+
+.lifecycle-item p {
+    color: var(--text-light);
+    line-height: 1.7;
+    margin: 0;
+}
+
+#quiz-result-btn,
+.reset-btn {
+    cursor: pointer;
+}
+
+.quiz-question input[type="checkbox"] {
+    margin-right: 1rem;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.quiz-question label {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    cursor: pointer;
+}
+
 .trend-chart {
     width: 100%;
     max-width: 400px;

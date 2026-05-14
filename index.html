@@ -47,24 +47,28 @@
             <h2 class="section-title">Аналитика трендов</h2>
             <div class="analytics-content">
                 <div class="analytics-text">
-                    <p>Жизненный цикл тренда в TikTok/Instagram сократился до 3–6 недель.</p>
-                    <p>78% инноваций инициируют инфлюенсеры.</p>
-                    <p>92% молодежи подвержены эффекту FOMO.</p>
+                    <p>Жизненный цикл тренда в ВК и ВК Клипы теперь укладывается в 3–6 недель, и это особенно заметно в моде. Сегодня новый стиль может взлететь, а ещё через две недели уступить место другому.</p>
+                    <p>Современные вирусные эстетики: <strong>Blokecore</strong>, <strong>Coquette</strong>, <strong>Office Siren</strong> — они быстро сменяют друг друга, влияя на гардероб, выбор брендов и потребительские привычки.</p>
+                    <p>Это не просто цифры — это ритм, в котором алгоритмы диктуют, что ярче всего продаётся сегодня.</p>
                 </div>
                 <div class="analytics-chart">
-                    <svg viewBox="0 0 400 200" class="trend-chart">
-                        <defs>
-                            <linearGradient id="trendGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        <polyline fill="url(#trendGradient)" stroke="#667eea" stroke-width="2" points="0,180 50,160 100,140 150,50 200,30 250,80 300,120 350,150 400,180"/>
-                        <line x1="0" y1="180" x2="400" y2="180" stroke="#e2e8f0" stroke-width="1"/>
-                        <text x="0" y="195" font-size="12" fill="#64748b">Неделя 1</text>
-                        <text x="190" y="195" font-size="12" fill="#64748b">Неделя 3</text>
-                        <text x="380" y="195" font-size="12" fill="#64748b">Неделя 6</text>
-                    </svg>
+                    <div class="trend-lifecycle">
+                        <div class="lifecycle-item">
+                            <div class="lifecycle-title"><span>Неделя 1</span><span>Запуск</span></div>
+                            <div class="lifecycle-bar"><span class="lifecycle-fill fill-start" style="width: 72%"></span></div>
+                            <p>Blokecore проходит первые вирусные публикации и начинает захватывать ленты.</p>
+                        </div>
+                        <div class="lifecycle-item">
+                            <div class="lifecycle-title"><span>Неделя 3</span><span>Пик</span></div>
+                            <div class="lifecycle-bar"><span class="lifecycle-fill fill-peak" style="width: 90%"></span></div>
+                            <p>Coquette достигает пика внимания, создавая массовый спрос за считанные дни.</p>
+                        </div>
+                        <div class="lifecycle-item">
+                            <div class="lifecycle-title"><span>Неделя 6</span><span>Уход</span></div>
+                            <div class="lifecycle-bar"><span class="lifecycle-fill fill-decline" style="width: 45%"></span></div>
+                            <p>Office Siren уже уступает место новому формату, оставляя за собой ясный след в гардеробе.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -78,7 +82,7 @@
                 <div class="about-card slide-in-left">
                     <div class="card-icon">🌟</div>
                     <h3>Свобода быть собой</h3>
-                    <p>Индивидуализм — это право и возможность быть самим собой, не подчиняясь навязанным стандартам и трендам социальных сетей. Это право не следовать виральным эстетикам (core-стилям).</p>
+                    <p>Индивидуализм в моде — это выбор, основанный на собственных ощущениях, а не на бездумном копировании стилей, которые навязывают алгоритмы ВК и ВК Клипы. Это право не следовать виральным эстетикам (core-стилям).</p>
                 </div>
                 <div class="about-card slide-in-bottom">
                     <div class="card-icon">🎯</div>
@@ -152,11 +156,11 @@
                 <form id="influence-quiz">
                     <div class="quiz-question">
                         <input type="checkbox" id="q1" name="q1">
-                        <label for="q1">Я покупаю товары, которые вижу в Reels или Stories</label>
+                        <label for="q1">Я покупаю товары, которые вижу в ВК Клипы или Историях</label>
                     </div>
                     <div class="quiz-question">
                         <input type="checkbox" id="q2" name="q2">
-                        <label for="q2">Я следую виральным эстетикам и стилям из TikTok</label>
+                        <label for="q2">Я следую виральным эстетикам и стилям из ВК и ВК Клипов</label>
                     </div>
                     <div class="quiz-question">
                         <input type="checkbox" id="q3" name="q3">
@@ -170,6 +174,7 @@
                     <button type="button" id="quiz-reset-btn" class="cta-button reset-btn">Пройти заново</button>
                 </form>
                 <div id="quiz-result" class="quiz-result hidden">
+                    <p id="quiz-result-percentage"></p>
                     <p id="quiz-result-text"></p>
                 </div>
             </div>
@@ -189,6 +194,8 @@
                         <li>"Уолден, или Жизнь в лесу" — Генри Дэвид Торо</li>
                         <li>"Индивидуализм и экономический порядок" — Фридрих Хайек</li>
                         <li>"Бунтующий человек" — Альбер Камю</li>
+                        <li>"Гардероб наизнанку" — Анастасия Приказчикова</li>
+                        <li>Актуальные статьи о fast fashion и влиянии медиа на потребление: Shein, Zara, ВК Клипы и ВК.</li>
                     </ul>
                 </div>
                 <div class="resource-card">
